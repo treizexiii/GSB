@@ -1,0 +1,15 @@
+{
+    "name": "darkt/gsb-frais",
+    "authors": [
+        {
+            "name": "Treize",
+            "email": "jonathan.rougier@hotmail.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "": ["Controllers/", "Data/", "Models", "./"]
+        }
+    }
+}
