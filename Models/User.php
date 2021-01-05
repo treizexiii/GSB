@@ -15,7 +15,7 @@ class User extends Model
         $query->execute([$user]);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
-
+    
     public function createUser($arrayOfUser)
     {
         $firstName = $arrayOfUser['firstName'];

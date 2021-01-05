@@ -18,7 +18,7 @@
                 <td><?= $frais['mois'] ?></td>
                 <td><?= $frais['montantValide'] ?></td>
                 <td><?= $frais['idEtat'] ?></td>
-                <td><button class="btn btn-primary">voir</button></td>
+                <td><button class="btn btn-primary"><a href="" style="color: white;">voir</a></button></td>
                 <?php $total += $frais['montantValide'] ?>
             </tr>
         <?php endforeach ?>

@@ -51,7 +51,7 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-    <a href="<?php Url::$url ?>home"><img src="images/logo.jpg" alt="" style="max-width: 94px;"></a>
+    <a href="<?php Url::$url ?>home"><img src="images/logo.jpg" alt="" ></a>
     <a class="navbar-brand" href="<?php Url::$url ?>home"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -85,14 +85,14 @@
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Créer un compte</button>
         </form>
         <form action="<?php Url::$url ?>login" class="form-inline my-2 my-lg-0" method="POST">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Se connecter</button>
+          <button class="btn btn-dark my-2 my-sm-0" type="submit">Se connecter</button>
         </form>
       <?php else : ?>
         <form action="<?php Url::$url ?>logout" class="form-inline my-2 my-lg-0" method="POST">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Se déconnecter</button>
+          <button class="btn btn-dark my-2 my-sm-0" type="submit">Se déconnecter</button>
         </form>
       <?php endif ?>
     </div>
   </nav>
 
-  <main role="main" class="container" style="margin-top: 20px;">
+  <main role="main" class="container" style="margin-top: 5em;">
