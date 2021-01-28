@@ -24,4 +24,30 @@ class VisiteurController extends Controller
         $data['visiteur'] = $visiteur;
         $this->getView('frais', $data);
     }
+
+    public function gestion()
+    {
+        $visiteur = [];
+        $frais = [];
+        $this->getModel('visiteur');
+        $visiteur = $this->visiteur->getAll();
+        $this->getView('gestionVisiteurs', $visiteur);
+    }
+
+    public function details(string $id)
+    {
+        $this->getModel('visiteur');
+        $this->getModel('Frais');
+        $visiteur = $this->visiteur->getVisiteurByID($id);
+        $frais = $this->Frais->getBillById($id);
+        $infosVisiteur = [$visiteur, $frais];
+        $this->getView('detailsVisiteur', $infosVisiteur);
+    }
+
+    public function deleteVisiteur(string $id)
+    {
+        $message = ['Le visiteur a bien été effacé.'];
+        $this->getModel('visiteur');
+        $this->getModel('Frais');
+    }
 }

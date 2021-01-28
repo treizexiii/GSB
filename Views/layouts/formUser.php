@@ -1,4 +1,4 @@
-    <form action="<?php Url::$url ?>frais" method="post">
+    <form action="<?php App::$root ?>frais" method="post">
         <div class="form-group">
             <label for="user">
                 <h3>Selectionner un visiteur</h3>
@@ -20,3 +20,4 @@
             <button class="btn btn-primary" name="userSelected" type="submit" style="margin-top: 1em;">Valider</button>
         </div>
     </form>
+    
