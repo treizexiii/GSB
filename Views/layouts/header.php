@@ -51,8 +51,8 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-    <a href="<?php Url::$url ?>home"><img src="images/logo.jpg" alt="" ></a>
-    <a class="navbar-brand" href="<?php Url::$url ?>home"></a>
+    <a href="home"><img src="<?= App::$root . 'images/logo.jpg' ?>" alt="" /></a>
+    <a class="navbar-brand" href="home"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -61,14 +61,17 @@
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="<?php Url::$url ?>home">Home</a>
+          <a class="nav-link" href="<?= App::$root ?>home">Home</a>
         </li>
         <?php if (isset($_SESSION['auth'])) : ?>
           <li class="nav-item active">
-            <a class="nav-link" href="<?php Url::$url ?>frais">Frais</a>
+            <a class="nav-link" href="<?= App::$root ?>frais">Frais</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="<?php Url::$url ?>ajout">Création d'une note de frais</a>
+            <a class="nav-link" href="<?= App::$root ?>gestionVisiteurs">Gestion des visiteurs</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?= App::$root ?>ajout">Création d'une note de frais</a>
           </li>
         <?php endif ?>
         <li class="nav-item dropdown">
@@ -81,18 +84,18 @@
         </li>
       </ul>
       <?php if (!isset($_SESSION['auth'])) : ?>
-        <form action="<?php Url::$url ?>register" class="form-inline my-2 my-lg-0" style="margin-right:5px" method="POST">
+        <form action="<?php App::$root ?>register" class="form-inline my-2 my-lg-0" style="margin-right:5px" method="POST">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Créer un compte</button>
         </form>
-        <form action="<?php Url::$url ?>login" class="form-inline my-2 my-lg-0" method="POST">
+        <form action="<?php App::$root ?>login" class="form-inline my-2 my-lg-0" method="POST">
           <button class="btn btn-dark my-2 my-sm-0" type="submit">Se connecter</button>
         </form>
       <?php else : ?>
-        <form action="<?php Url::$url ?>logout" class="form-inline my-2 my-lg-0" method="POST">
+        <form action="<?php App::$root ?>logout" class="form-inline my-2 my-lg-0" method="POST">
           <button class="btn btn-dark my-2 my-sm-0" type="submit">Se déconnecter</button>
         </form>
       <?php endif ?>
     </div>
   </nav>
 
-  <main role="main" class="container" style="margin-top: 5em;">
+  <main role="main" class="container" style="margin-top: 2em;">

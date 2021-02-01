@@ -6,7 +6,9 @@
             "email": "jonathan.rougier@hotmail.fr"
         }
     ],
-    "require": {},
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
+    },
     "autoload": {
         "psr-0": {
             "": ["Controllers/", "Data/", "Models", "./"]
