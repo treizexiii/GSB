@@ -25,29 +25,38 @@ class VisiteurController extends Controller
         $this->getView('frais', $data);
     }
 
-    public function gestion()
+    public function gestion(string $message = null)
     {
-        $visiteur = [];
-        $frais = [];
         $this->getModel('visiteur');
-        $visiteur = $this->visiteur->getAll();
-        $this->getView('gestionVisiteurs', $visiteur);
+        if (!empty($_SESSION['message'])) {
+            $data['message'] = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+        $data['visiteur'] = $this->visiteur->getAll();
+        $this->getView('gestionVisiteurs', $data);
     }
 
     public function details(string $id)
     {
         $this->getModel('visiteur');
-        $this->getModel('Frais');
         $visiteur = $this->visiteur->getVisiteurByID($id);
-        $frais = $this->Frais->getBillById($id);
+        $frais = $this->visiteur->getBillById($id);
         $infosVisiteur = [$visiteur, $frais];
         $this->getView('detailsVisiteur', $infosVisiteur);
     }
 
-    public function deleteVisiteur(string $id)
+    public function detailsBill(string $id, string $mois)
     {
-        $message = ['Le visiteur a bien été effacé.'];
         $this->getModel('visiteur');
-        $this->getModel('Frais');
+        $frais = $this->visiteur->getDetailBill($id, $mois);
+        $this->getView('DetailsFraisVisiteur', $frais);
+    }
+
+    public function delete(string $id)
+    {
+        $this->getModel('visiteur');
+        $_SESSION['message'] = $this->visiteur->deleteVisiteur($id);
+        header("location: ". App::$root . "gestionVisiteurs");
+        exit;
     }
 }

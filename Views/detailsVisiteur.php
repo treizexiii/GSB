@@ -29,14 +29,15 @@
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-12">
-                        <button type="submit" class="form-control mb-3 btn btn-primary">Modifier</button><a href="#"><button class="form-control mb-3 btn btn-danger" href="#">Supprimer</button></a>
+                        <button type="submit" class="form-control mb-3 btn btn-primary">Modifier</button>
+                        <button class="form-control mb-3 btn btn-danger"><a href="<?= App::$root ?>deleteVisiteur/<?= $allData[0]['id'] ?> " style="color: white;">Supprimer</a></button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row mb-3">
     <div class="col-md-8">
         <h1>Liste des notes de frais pour </h1>
         <table class="table table-striped">
@@ -47,6 +48,7 @@
                     <th>Montant Validé</th>
                     <th>Modification</th>
                     <th>Etat</th>
+                    <th> </th>
                 </tr>
             </thead>
             <?php foreach ($allData[1] as $note) : ?>
@@ -55,7 +57,9 @@
                     <td><?= $note['nbJustificatifs'] ?></td>
                     <td><?= $note['montantValide'] ?></td>
                     <td><?= $note['dateModif'] ?></td>
-                    <td><?= $note['idEtat'] ?></td>
+                    <td><?= $note['libelle'] ?></td>
+                    <td><button class="btn btn-primary"><a href="<?= App::$root ?>FraisVisiteur/<?= $note['idVisiteur'] ?>/<?= $note['mois'] ?>"
+                            style="color: white;">voir</a></button></td>
                 </tr>
             <?php endforeach ?>
         </table>

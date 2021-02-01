@@ -9,6 +9,11 @@
         </form>
     </div>
     <div class="col-md-8">
+        <?php if (!empty($allData['message'])) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= $allData['message'] ?>
+            </div>
+        <?php endif ?>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -17,13 +22,12 @@
                     <th></th>
                 </tr>
             </thead>
-            <?php foreach ($allData as $visiteur) : ?>
-            <tr>
-                <td><?= $visiteur['nom'] ?></td>
-                <td><?= $visiteur['prenom'] ?></td>
-                <td><button class="btn btn-primary"><a href="<?php App::$root ?>detailsVisiteur/<?= $visiteur['id'] ?>"
-                            style="color: white;">voir</a></button></td>
-            </tr>
+            <?php foreach ($allData['visiteur'] as $visiteur) : ?>
+                <tr>
+                    <td><?= $visiteur['nom'] ?></td>
+                    <td><?= $visiteur['prenom'] ?></td>
+                    <td><button class="btn btn-primary"><a href="<?= App::$root ?>detailsVisiteur/<?= $visiteur['id'] ?>" style="color: white;">voir</a></button></td>
+                </tr>
             <?php endforeach ?>
         </table>
     </div>
