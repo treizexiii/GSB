@@ -29,4 +29,14 @@ class Frais extends Model
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function insertNewBill($data)
+    {
+        $sqlVerif = "SELECT id FROM visiteur WHERE id=?";
+        $query = $this->_connection->prepare($sqlVerif);
+        if ($query->execute([$data['visiteur']]) == false) {
+            return $message = "le visiteur n'existe pas";
+        }
+        echo 'ok';
+    }
 }

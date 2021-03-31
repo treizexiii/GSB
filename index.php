@@ -8,14 +8,19 @@ $dotenv->load();
 $url = new Url();
 $app = new App($url->getUrlInfo()[0]);
 
+// if (!empty($_POST)) {
+//     $request = new Request($_POST);
+// }
+
 if (!isset($_SESSION)) {
     session_start();
 }
 
 $routes = [
     "/\/logout/" => ['LogoutController', 'logout'],
-    "/\/ajout\/?/" => ['AjoutController', 'index'],
+    "/\/ajout\/?/" => ['FraisController', 'createBill'],
     "/\/detailsFrais\/?/" => ['FraisController', 'index'],
+    "/\/ajoutNote\/?/" => ['FraisController', 'index'],
     "/\/frais\/?/" => ['VisiteurController', 'index'],
     "/\/gestionVisiteur\/?/" => ['visiteurController', 'gestion'],
     "/\/FraisVisiteur\/?(\d+)?\/?(\d+)?/" => ['visiteurController', 'detailsBill'],
@@ -43,6 +48,7 @@ foreach ($routes as $route => $action) {
                 $controller = new $action[0];
                 $controller->{$action[1]}($params1, $params2);
             } else {
+
                 $params = $elementsUrl[2];
                 $controller = new $action[0];
                 $controller->{$action[1]}($params);

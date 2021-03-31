@@ -37,7 +37,7 @@ class Visiteur extends Model
         return $query->fetchall(PDO::FETCH_ASSOC);
     }
 
-    public function deleteVisiteur($id)
+    public function deleteVisiteur(string $id)
     {
         $message = "Erreur";
         try {
